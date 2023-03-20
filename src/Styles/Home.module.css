@@ -1,11 +1,9 @@
 .contactContainer{
     margin-top: 20px;
     padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     width: 70%;
     height: 80%;
-    border: 2px solid red;
 }
 .contactContainer h1 img{
     width: 25px;
@@ -72,17 +70,33 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    cursor: pointer;
 }
 .contactListForm form input{
     width: 200px;
     height: 35px;
+    margin: 10px;
 }
 .contactListFormbtn{
     border: none;
     background-color: transparent;
-    cursor: pointer;
+    
 }
 .contactIconsbtn {
     width: 35px;
     
+}
+
+@media only screen and (max-width: 1390px) {
+    .contactListForm form{
+        flex-direction: column;
+        width: 35%;
+    }
+    .contactCointainer{
+        width: 100%;
+        overflow: hidden;
+    }
+    .contactListHeading{
+        font-size: 30px;
+    }
 }
