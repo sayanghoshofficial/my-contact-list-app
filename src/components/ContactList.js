@@ -6,19 +6,26 @@ import Styles from "../Styles/Home.module.css";
 const ContactList = () => {
   const [contactList, setContactList] = useState([]);
   const [loading, setLoading] = useState(false);
-  
-  useEffect(()=>{
-    fetchingContact();
-  },[])
 
-  const fetchingContact = async() => {
+  useEffect(() => {
+    fetchingContact();
+  }, []);
+
+  const fetchingContact = async () => {
+    setLoading(true);
     const jsonData = await fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => data)
       .catch((error) => console.error(error));
-      setContactList(jsonData);
+    setContactList(jsonData);
+    setLoading(false);
   };
-  
+
+  if(loading){
+    return (
+      <div className="loader"></div>
+    )
+  }
 
   return (
     <div className={Styles.contactCointainer}>
