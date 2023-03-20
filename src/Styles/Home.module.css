@@ -4,6 +4,7 @@
   margin: auto;
   width: 70%;
   height: 80%;
+  
   /* border: 2px solid red; */
 }
 .contactContainer h1 img {
@@ -38,67 +39,63 @@
   align-content: start;
 }
 
-.contactList{
-    display:flex;
-    height: 40px;
-    justify-content: space-around;
-    align-items: center;
-    border-top:2px solid rebeccapurple
+.contactList {
+  display: flex;
+  height: 40px;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid rebeccapurple;
 }
-.contactList:nth-child(2n+1){
-    background-color: #bbb8e2;
+.contactList:nth-child(2n + 1) {
+  background-color: #bbb8e2;
 }
-.contactList:hover{
-    background-color: rgb(128, 103, 216);
-    color: white;
+.contactList:hover {
+  background-color: rgb(128, 103, 216);
+  color: white;
 }
-.contactElement{
-    width: 30%;
-    display: flex;
-    padding-left: 24px;
-    align-content: start;
+.contactElement {
+  width: 30%;
+  display: flex;
+  padding-left: 24px;
+  align-content: start;
 }
-.contactPhoneNo{
-    width: 33%;
-}
-.contactEmail{
-    width: 33%;
+.deleteBtn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.contactListFormbtn{
-    border: none;
-    background-color: transparent;
-    
+.contactListFormbtn {
+  border: none;
+  background-color: transparent;
 }
 .contactIconsbtn {
-    width: 35px;
-    
-} 
-.contactListForm form{
-    width: 70%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    
+  width: 35px;
 }
-.contactListForm form input{
-    width: 200px;
-    height: 40px;
-    margin: 10px;
-    font-size: 17px;
-    cursor: pointer;
+.contactListForm form {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.contactListForm form input {
+  width: 200px;
+  height: 40px;
+  margin: 10px;
+  font-size: 17px;
+  cursor: pointer;
 }
 @media only screen and (max-width: 1390px) {
-    .contactListForm form{
-        flex-direction: column;
-        width: 35%;
-    }
-    .contactCointainer{
-        width: 100%;
-        overflow: hidden;
-    }
-    .contactListHeading{
-        font-size: 30px;
-    }
+  .contactListForm form {
+    flex-direction: column;
+    width: 35%;
+  }
+  .contactCointainer {
+    width: 100%;
+    overflow: hidden;
+  }
+  .contactListHeading {
+    font-size: 30px;
+  }
 }
