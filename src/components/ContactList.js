@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { uid } from "uid";
 import Styles from "../Styles/Home.module.css";
-// import { data as contactList } from "../data";
-// import { fetchContactData} from "../actions";
 
-const ContactList = () => {
+const ContactList = (props) => {
   const [contactList, setContactList] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchingContact();
-  }, []);
+    if (props.data.length !== 0) {
+      setContactList([...props.data, ...contactList]);
+    } else {
+      fetchingContact();
+    }
+  }, [props.data]);
 
   const fetchingContact = async () => {
     setLoading(true);
@@ -21,10 +24,8 @@ const ContactList = () => {
     setLoading(false);
   };
 
-  if(loading){
-    return (
-      <div className="loader"></div>
-    )
+  if (loading) {
+    return <div className="loader"></div>;
   }
 
   return (
@@ -67,6 +68,7 @@ const ContactList = () => {
             <div className={Styles.contactElement}>{contact.name}</div>
             <div className={Styles.contactElement}>{contact.phone}</div>
             <div className={Styles.contactElement}>{contact.email}</div>
+            <small></small>
           </li>
         ))}
       </ul>

@@ -1,40 +1,41 @@
-.contactContainer{
-    margin-top: 20px;
-    padding: 10px;
-    margin: auto;
-    width: 70%;
-    height: 80%;
+.contactContainer {
+  margin-top: 20px;
+  padding: 10px;
+  margin: auto;
+  width: 70%;
+  height: 80%;
+  /* border: 2px solid red; */
 }
-.contactContainer h1 img{
-    width: 25px;
-    height: 25px;
+.contactContainer h1 img {
+  width: 25px;
+  height: 25px;
 }
-/* .contactContainer input{
-    width: 70%;
-    height: 40px;
-} */
-.contactCointainer{
-    width: 80%;
-    align-items: center;
-    margin: auto;
+
+.contactCointainer {
+  width: 80%;
+  align-items: center;
+  margin: auto;
+  margin-top: 40px;
+  /* border: 2px solid blue; */
 }
-.contactListHeading{
-    display:flex;
-    height: 40px;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 40px;
-    background-color: #bb00ff;
-    color: #e7e7e7;
+.contactListHeading {
+  display: flex;
+  height: 40px;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 40px;
+  background-color: #bb00ff;
+  color: #e7e7e7;
 }
-.contactIcons{
-    width: 22px;
+.contactIcons {
+  width: 22px;
 }
-.contacHeadingElement{
-    width: 30%;
-    display: flex;
-    padding-left: 24px;
-    align-content: start;
+.contacHeadingElement {
+  width: 30%;
+  display: flex;
+  padding-left: 24px;
+  align-content: start;
 }
 
 .contactList{
@@ -64,19 +65,6 @@
     width: 33%;
 }
 
-.contactListForm form{
-    width: 70%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    cursor: pointer;
-}
-.contactListForm form input{
-    width: 200px;
-    height: 35px;
-    margin: 10px;
-}
 .contactListFormbtn{
     border: none;
     background-color: transparent;
@@ -85,8 +73,22 @@
 .contactIconsbtn {
     width: 35px;
     
+} 
+.contactListForm form{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
 }
-
+.contactListForm form input{
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
 @media only screen and (max-width: 1390px) {
     .contactListForm form{
         flex-direction: column;

@@ -1,20 +1,34 @@
 import { useState } from "react";
 import Styles from "../Styles/Home.module.css";
 
-const ContactListForm = () => {
+const ContactListForm = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
 
-  const getContactValues = () =>{
+  const getContactValues = (e) => {
+    e.preventDefault();
     setName(name);
-    console.log(name);
     setEmail(email);
-    console.log(email);
     setNumber(number);
-    console.log(number)
-  }
-
+    creatingContact(name,email,number);
+  };
+  const creatingContact = (name, email, number) => {
+    fetch("https://jsonplaceholder.typicode.com/users", {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        phone: number,
+        id: Date.now()
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => props.contactTempData(json));
+  };
   return (
     <div className={Styles.contactListForm}>
       <form>
@@ -22,25 +36,23 @@ const ContactListForm = () => {
           type="text"
           placeholder="Full Name"
           value={name}
-          onChange={(e) => e.target.value}
-          required
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           type="number"
           placeholder="Phone No."
           value={email}
-          onChange={(e) => e.target.value}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
           type="email"
           placeholder="Email id"
           value={number}
-          onChange={(e) => e.target.value}
+          onChange={(e) => setNumber(e.target.value)}
           required
         />
         <button
-          type="submit"
           className={Styles.contactListFormbtn}
           onClick={getContactValues}
         >
