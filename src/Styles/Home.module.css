@@ -1,0 +1,70 @@
+.contactContainer{
+    margin-top: 20px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 80%;
+    border: 2px solid red;
+}
+.contactContainer h1 img{
+    width: 25px;
+    height: 25px;
+}
+.contactContainer input{
+    width: 70%;
+    height: 40px;
+}
+.contactCointainer{
+    width: 80%;
+    align-items: center;
+    margin: auto;
+}
+.contactListHeading{
+    display:flex;
+    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 40px;
+    background-color: #bb00ff;
+    color: #e7e7e7;
+}
+.contactIcons{
+    width: 22px;
+}
+.contactNameHeading{
+    width: 33%;
+}
+.contactPhoneNoHeading{
+    width: 33%;
+}
+.contactEmailHeading{
+    width: 33%;
+}
+.contactList{
+    display:flex;
+    height: 40px;
+    justify-content: space-around;
+    align-items: center;
+    border-top:2px solid rebeccapurple
+}
+.contactList:nth-child(2n+1){
+    background-color: #bbb8e2;
+}
+.contactList:hover{
+    background-color: rgb(128, 103, 216);
+    color: white;
+}
+.contactElement{
+    width: 30%;
+    /* position: relative; */
+    display: flex;
+    padding-left: 24px;
+    align-content: start;
+}
+.contactPhoneNo{
+    width: 33%;
+}
+.contactEmail{
+    width: 33%;
+}
