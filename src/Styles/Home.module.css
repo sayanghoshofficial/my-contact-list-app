@@ -11,10 +11,10 @@
     width: 25px;
     height: 25px;
 }
-.contactContainer input{
+/* .contactContainer input{
     width: 70%;
     height: 40px;
-}
+} */
 .contactCointainer{
     width: 80%;
     align-items: center;
@@ -32,15 +32,13 @@
 .contactIcons{
     width: 22px;
 }
-.contactNameHeading{
-    width: 33%;
+.contacHeadingElement{
+    width: 30%;
+    display: flex;
+    padding-left: 24px;
+    align-content: start;
 }
-.contactPhoneNoHeading{
-    width: 33%;
-}
-.contactEmailHeading{
-    width: 33%;
-}
+
 .contactList{
     display:flex;
     height: 40px;
@@ -57,7 +55,6 @@
 }
 .contactElement{
     width: 30%;
-    /* position: relative; */
     display: flex;
     padding-left: 24px;
     align-content: start;
@@ -67,4 +64,25 @@
 }
 .contactEmail{
     width: 33%;
+}
+
+.contactListForm form{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.contactListForm form input{
+    width: 200px;
+    height: 35px;
+}
+.contactListFormbtn{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.contactIconsbtn {
+    width: 35px;
+    
 }

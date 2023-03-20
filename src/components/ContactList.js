@@ -1,23 +1,30 @@
+import { useEffect, useState } from "react";
 import Styles from "../Styles/Home.module.css";
-import { data as contactList } from "../data";
+// import { data as contactList } from "../data";
 // import { fetchContactData} from "../actions";
 
 const ContactList = () => {
-  const jsonData = fetch("https://jsonplaceholder.typicode.com/users")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => console.error(error));
+  const [contactList, setContactList] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+  useEffect(()=>{
+    fetchingContact();
+  },[])
 
-  const List = jsonData;
-  console.log("Contact List", List);
+  const fetchingContact = async() => {
+    const jsonData = await fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => data)
+      .catch((error) => console.error(error));
+      setContactList(jsonData);
+  };
+  
 
   return (
     <div className={Styles.contactCointainer}>
       <ul>
         <li className={Styles.contactListHeading}>
-          <div className={Styles.contactNameHeading}>
+          <div className={Styles.contacHeadingElement}>
             <h6>
               <img
                 alt="icon"
@@ -27,7 +34,7 @@ const ContactList = () => {
               Name
             </h6>
           </div>
-          <div className={Styles.contactPhoneNoHeading}>
+          <div className={Styles.contacHeadingElement}>
             <h6>
               <img
                 alt="icon"
@@ -37,7 +44,7 @@ const ContactList = () => {
               Phone No.
             </h6>
           </div>
-          <div className={Styles.contactEmailHeading}>
+          <div className={Styles.contacHeadingElement}>
             <h6>
               <img
                 alt="icon"
