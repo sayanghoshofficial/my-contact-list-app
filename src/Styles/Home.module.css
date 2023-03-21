@@ -21,7 +21,7 @@
   height: 40px;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 50px;
   font-size: 40px;
   background-color: #bb00ff;
   color: #e7e7e7;
@@ -65,6 +65,7 @@
 .contactListFormbtn {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 .contactIconsbtn {
   width: 35px;
@@ -104,4 +105,14 @@
     font-size: 30px;
   }
   
+  
+}
+@media only screen and (max-width: 550px){
+  .hidden{
+    display: none;
+  }
+  .contacHeadingElement{
+    position: relative;
+    left: -30px;
+  }
 }

@@ -11,16 +11,19 @@ const ContactListForm = (props) => {
     setName(name);
     setEmail(email);
     setNumber(number);
-    creatingContact(name,email,number);
+    creatingContact(name, number, email);
+    setName('');
+    setEmail('');
+    setNumber('');
   };
-  const creatingContact = (name, email, number) => {
+  const creatingContact = (name, number, email) => {
     fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
       body: JSON.stringify({
         name: name,
-        email: email,
         phone: number,
-        id: Date.now()
+        email: email,
+        id: Date.now(),
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -37,19 +40,20 @@ const ContactListForm = (props) => {
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
         <input
           type="number"
           placeholder="Phone No."
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
           required
         />
         <input
           type="email"
           placeholder="Email id"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <button
