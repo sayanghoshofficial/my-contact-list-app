@@ -6,8 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  width: 100%;
-  min-width: 981px;
+  /* width: 100%; */
+  /* min-width: 1px; */
 }
 
 code {
