@@ -3,6 +3,7 @@ import Styles from "../Styles/Home.module.css";
 
 const ContactList = (props) => {
   const [contactList, setContactList] = useState([]);
+  const [editContact, setEditContact] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -20,19 +21,17 @@ const ContactList = (props) => {
       .then((data) => data)
       .catch((error) => console.error(error));
     setContactList(jsonData);
-    jsonData.forEach(element => {
-      console.log(typeof element.id)
-    });
     setLoading(false);
   };
   const deleteContactFromTheList = (id) => {
     // console.log("delete btn clicked",typeof id);
-    // fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-    //   method: "DELETE",
-    // });
-    const newJsonData = contactList.filter(item => item.id !== id )
-    console.log(newJsonData);
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+      method: "DELETE",
+    });
+    const newJsonData = contactList.filter((item) => item.id !== id);
+    // console.log(newJsonData);
     setContactList(newJsonData);
+    console.log(id);
   };
 
   if (loading) {
@@ -73,6 +72,7 @@ const ContactList = (props) => {
               Email
             </h6>
           </div>
+          <div className={Styles.BtnDiv}></div>
         </li>
         {contactList.map((contact, index) => (
           <li
@@ -84,18 +84,25 @@ const ContactList = (props) => {
             <div className={`${Styles.contactElement} ${Styles.hidden}`}>
               {contact.email}
             </div>
-            <button
-              className={Styles.deleteBtn}
-              onClick={() => {
-                deleteContactFromTheList(contact.id);
-              }}
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3178/3178384.png"
-                alt="delet-btn"
-                className={Styles.contactIcons}
-              />
-            </button>
+            <div className={Styles.BtnDiv}>
+              <button className={Styles.editAndDeleteBtn}>
+                <img
+                  alt="edit-btn"
+                  src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png"
+                  className={Styles.contactIcons}
+                />
+              </button>
+              <button
+                className={Styles.editAndDeleteBtn}
+                onClick={() => deleteContactFromTheList(contact.id)}
+              >
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/3178/3178384.png"
+                  alt="delet-btn"
+                  className={Styles.contactIcons}
+                />
+              </button>
+            </div>
           </li>
         ))}
       </ul>

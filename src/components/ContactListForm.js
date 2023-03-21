@@ -8,29 +8,28 @@ const ContactListForm = (props) => {
 
   const getContactValues = (e) => {
     e.preventDefault();
-    setName(name);
-    setEmail(email);
-    setNumber(number);
     creatingContact(name, number, email);
     setName('');
     setEmail('');
     setNumber('');
+    // console.log('props.data/length',props.data.length)
   };
   const creatingContact = (name, number, email) => {
+    props.contactTempData({
+      name: name,
+      phone: number,
+      email: email,
+      id: Date.now(),
+    })
     fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
-      body: JSON.stringify({
-        name: name,
-        phone: number,
-        email: email,
-        id: Date.now(),
-      }),
+      body: JSON.stringify(),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
       .then((response) => response.json())
-      .then((json) => props.contactTempData(json));
+      .then((json) => console.log(json));
   };
   return (
     <div className={Styles.contactListForm}>
@@ -58,7 +57,7 @@ const ContactListForm = (props) => {
         />
         <button
           className={Styles.contactListFormbtn}
-          onClick={getContactValues}
+          onClick={(e)=>{getContactValues(e)}}
         >
           <img
             src="https://cdn-icons-png.flaticon.com/512/1057/1057240.png"

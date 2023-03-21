@@ -56,11 +56,15 @@
   /* padding-left: 24px; */
   align-content: start;
 }
-.deleteBtn {
+.BtnDiv{
+  width: 70px;
+}
+.editAndDeleteBtn {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
+
 
 .contactListFormbtn {
   border: none;
@@ -107,7 +111,7 @@
   
   
 }
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 660px){
   .hidden{
     display: none;
   }

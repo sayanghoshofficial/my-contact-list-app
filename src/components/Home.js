@@ -20,7 +20,7 @@ const Home = () => {
         />
         My Contact List
       </h1>
-      <ContactListForm contactTempData = {fetchNewData}/>
+      <ContactListForm contactTempData = {fetchNewData} data={newData}/>
       <ContactList data={newData}/>
     </div>
   );
