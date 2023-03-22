@@ -42,7 +42,7 @@ const ContactListForm = (props) => {
           required
         />
         <input
-          type="number"
+          type="text"
           placeholder="Phone No."
           value={number}
           onChange={(e) => setNumber(e.target.value)}

@@ -11,7 +11,7 @@
   width: 25px;
   height: 25px;
 }
-.contactContainer ul{
+.contactContainer ul {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
@@ -32,7 +32,7 @@
 .contacHeadingElement {
   width: 30%;
   display: flex;
-  /* padding-left: 24px; */
+  margin-left: 5px;
   align-content: start;
 }
 
@@ -53,10 +53,10 @@
 .contactElement {
   width: 30%;
   display: flex;
-  /* padding-left: 24px; */
+  margin-left: 5px;
   align-content: start;
 }
-.BtnDiv{
+.BtnDiv {
   width: 70px;
 }
 .editAndDeleteBtn {
@@ -64,7 +64,6 @@
   background-color: transparent;
   cursor: pointer;
 }
-
 
 .contactListFormbtn {
   border: none;
@@ -93,30 +92,126 @@
     flex-direction: column;
     width: 35%;
   }
-  
 }
 @media only screen and (max-width: 960px) {
-  .contactContainer{
+  .contactContainer {
     width: 100%;
   }
-  
 }
 @media only screen and (max-width: 960px) {
-  .contactList{
+  .contactList {
     height: 60px;
   }
-  .contactListHeading{
+  .contactListHeading {
     font-size: 30px;
   }
-  
-  
 }
-@media only screen and (max-width: 660px){
-  .hidden{
+@media only screen and (max-width: 660px) {
+  .hidden {
     display: none;
   }
-  .contacHeadingElement{
-    position: relative;
-    left: -30px;
+}
+
+/* modal css */
+
+/* creating model for edit */
+
+/* body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;} */
+
+/* Set a style for all buttons */
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelBtn, .saveBtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelBtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.saveBtn {
+  background-color: #1fc23a;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modalContent {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearFix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelBtn, .saveBtn {
+     width: 100%;
   }
 }
