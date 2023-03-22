@@ -103,8 +103,8 @@ const ContactList = (props) => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
-          <div className="modal-content">
+        <div className="modal-dialog ">
+          <div className="modal-content bg-info">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Edit Contact
@@ -178,7 +178,7 @@ const ContactList = (props) => {
               <button
                 onClick={handleEditOnClick}
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-success"
                 data-bs-dismiss="modal"
               >
                 Save changes
