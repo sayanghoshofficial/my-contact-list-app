@@ -125,7 +125,7 @@
 
 /* Set a style for all buttons */
 .btn {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -136,11 +136,12 @@
 }
 
 .btn:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 /* Float cancel and delete buttons and add an equal width */
-.cancelBtn, .saveBtn {
+.cancelBtn,
+.saveBtn {
   float: left;
   width: 50%;
 }
@@ -189,7 +190,7 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
- 
+
 /* The Modal Close Button (x) */
 .close {
   position: absolute;
@@ -215,7 +216,8 @@ hr {
 
 /* Change styles for cancel button and delete button on extra small screens */
 @media screen and (max-width: 300px) {
-  .cancelBtn, .saveBtn {
-     width: 100%;
+  .cancelBtn,
+  .saveBtn {
+    width: 100%;
   }
 }

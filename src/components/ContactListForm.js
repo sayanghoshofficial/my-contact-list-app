@@ -1,12 +1,12 @@
 import { useState } from "react";
-// import { useToasts } from "react-toast-notifications";
+import { useToasts } from "react-toast-notifications";
 import Styles from "../Styles/Home.module.css";
 
 const ContactListForm = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
-  // const { addToast } = useToasts();
+  const { addToast } = useToasts();
 
   const getContactValues = (e) => {
     e.preventDefault();
@@ -23,9 +23,9 @@ const ContactListForm = (props) => {
       email,
       id,
     });
-    // addToast("Contact added successfully!", {
-    //   appearance: "success",
-    // });
+    addToast("Contact added successfully!", {
+      appearance: "success",
+    });
     console.log(id);
     fetch(`https://jsonplaceholder.typicode.com/users`, {
       method: "POST",

@@ -1,13 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './Styles/index.css';
-import App from './components/App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ToastProvider } from "react-toast-notifications";
+import "./Styles/index.css";
+import App from "./components/App";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>
+  <ToastProvider autoDismiss autoDismissTimeout={5000} placement="top-left">
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ToastProvider>
 );
-

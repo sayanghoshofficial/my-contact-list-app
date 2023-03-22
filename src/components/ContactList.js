@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-// import { useToasts } from "react-toast-notifications";
+import { useToasts } from "react-toast-notifications";
 import Styles from "../Styles/Home.module.css";
 
 const ContactList = (props) => {
@@ -11,7 +11,7 @@ const ContactList = (props) => {
     email: "",
     id: "",
   });
-  // const { addToast } = useToasts();
+  const { addToast } = useToasts();
   const ref = useRef(null);
 
   useEffect(() => {
@@ -37,9 +37,9 @@ const ContactList = (props) => {
     });
     const newJsonData = contactList.filter((item) => item.id !== id);
     setContactList(newJsonData);
-    // addToast("Contact deleted successfully!", {
-    //   appearance: "success",
-    // });
+    addToast("Contact deleted successfully!", {
+      appearance: "success",
+    });
   };
   const updateContactFromTheList = (value) => {
     const updateContact = contactList.map((contact) => {
@@ -49,9 +49,9 @@ const ContactList = (props) => {
       return contact;
     });
     setContactList(updateContact);
-    // addToast("Contact updated successfully!", {
-    //   appearance: "success",
-    // });
+    addToast("Contact updated successfully!", {
+      appearance: "success",
+    });
     fetch(`https://jsonplaceholder.typicode.com/users`, {
       method: "PUT",
       body: JSON.stringify(value),
