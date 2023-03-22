@@ -189,7 +189,7 @@ const ContactList = (props) => {
       </div>
       {/* modal */}
       <div className={Styles.contactCointainer}>
-        <ul>
+        <ul className={Styles.contactBox}>
           <li className={Styles.contactListHeading}>
             <div className={Styles.contacHeadingElement}>
               <h5>

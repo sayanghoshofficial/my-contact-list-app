@@ -7,6 +7,9 @@
   margin-top: 40px;
   min-width: 450px;
 }
+.contactBox{
+  box-shadow: 2px 2px 20px 0px;
+}
 .contactContainer h1 img {
   width: 25px;
   height: 25px;
