@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+// import { useToasts } from "react-toast-notifications";
 import Styles from "../Styles/Home.module.css";
 
 const ContactList = (props) => {
@@ -10,6 +11,7 @@ const ContactList = (props) => {
     email: "",
     id: "",
   });
+  // const { addToast } = useToasts();
   const ref = useRef(null);
 
   useEffect(() => {
@@ -35,6 +37,9 @@ const ContactList = (props) => {
     });
     const newJsonData = contactList.filter((item) => item.id !== id);
     setContactList(newJsonData);
+    // addToast("Contact deleted successfully!", {
+    //   appearance: "success",
+    // });
   };
   const updateContactFromTheList = (value) => {
     const updateContact = contactList.map((contact) => {
@@ -44,6 +49,9 @@ const ContactList = (props) => {
       return contact;
     });
     setContactList(updateContact);
+    // addToast("Contact updated successfully!", {
+    //   appearance: "success",
+    // });
     fetch(`https://jsonplaceholder.typicode.com/users`, {
       method: "PUT",
       body: JSON.stringify(value),
@@ -53,8 +61,6 @@ const ContactList = (props) => {
     })
       .then((response) => response.json())
       .then((json) => console.log(json));
-
-    
   };
 
   const editContact = (contact) => {
@@ -186,34 +192,34 @@ const ContactList = (props) => {
         <ul>
           <li className={Styles.contactListHeading}>
             <div className={Styles.contacHeadingElement}>
-              <h6>
+              <h5>
                 <img
                   alt="icon"
                   src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
                   className={Styles.contactIcons}
                 />
                 Name
-              </h6>
+              </h5>
             </div>
             <div className={Styles.contacHeadingElement}>
-              <h6>
+              <h5>
                 <img
                   alt="icon"
                   src="https://cdn-icons-png.flaticon.com/512/4213/4213179.png"
                   className={Styles.contactIcons}
                 />
                 Phone No.
-              </h6>
+              </h5>
             </div>
             <div className={`${Styles.contacHeadingElement} ${Styles.hidden}`}>
-              <h6>
+              <h5>
                 <img
                   alt="icon"
                   src="https://cdn-icons-png.flaticon.com/512/3059/3059989.png"
                   className={Styles.contactIcons}
                 />
                 Email
-              </h6>
+              </h5>
             </div>
             <div className={Styles.BtnDiv}></div>
           </li>

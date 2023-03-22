@@ -1,10 +1,12 @@
 import { useState } from "react";
+// import { useToasts } from "react-toast-notifications";
 import Styles from "../Styles/Home.module.css";
 
 const ContactListForm = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
+  // const { addToast } = useToasts();
 
   const getContactValues = (e) => {
     e.preventDefault();
@@ -14,24 +16,24 @@ const ContactListForm = (props) => {
     setNumber("");
     // console.log('props.data/length',props.data.length)
   };
-  const creatingContact = (name, number, email , id = Date.now()) => {
+  const creatingContact = (name, number, email, id = Date.now()) => {
     props.contactTempData({
       name,
       phone: number,
       email,
       id,
     });
-    console.log(id)
-    fetch(
-      `https://jsonplaceholder.typicode.com/users`,
-      {
-        method: "POST",
-        body: JSON.stringify(),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      }
-    )
+    // addToast("Contact added successfully!", {
+    //   appearance: "success",
+    // });
+    console.log(id);
+    fetch(`https://jsonplaceholder.typicode.com/users`, {
+      method: "POST",
+      body: JSON.stringify(),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
       .then((response) => response.json())
       .then((json) => console.log(json));
   };
@@ -60,6 +62,7 @@ const ContactListForm = (props) => {
           required
         />
         <button
+          type="submit"
           className={Styles.contactListFormbtn}
           onClick={(e) => {
             getContactValues(e);
