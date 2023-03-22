@@ -44,10 +44,10 @@
   border-bottom: 2px solid rebeccapurple;
 }
 .contactList:nth-child(2n + 1) {
-  background-color: #bbb8e2;
+  background-color: #8c4196;
 }
 .contactList:hover {
-  background-color: rgb(128, 103, 216);
+  background-color: rgb(25, 11, 75);
   color: white;
 }
 .contactElement {
@@ -72,12 +72,14 @@
 }
 .contactIconsbtn {
   width: 35px;
+  text-align: center;
 }
 .contactListForm form {
   width: 70%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-around;
 }
 .contactListForm form input {
@@ -85,6 +87,8 @@
   height: 40px;
   margin: 10px;
   font-size: 17px;
+  outline: none;
+  background-color: transparent;
   cursor: pointer;
 }
 @media only screen and (max-width: 1390px) {

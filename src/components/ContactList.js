@@ -36,6 +36,26 @@ const ContactList = (props) => {
     const newJsonData = contactList.filter((item) => item.id !== id);
     setContactList(newJsonData);
   };
+  const updateContactFromTheList = (value) => {
+    const updateContact = contactList.map((contact) => {
+      if (contact.id === value.id) {
+        contact = value;
+      }
+      return contact;
+    });
+    setContactList(updateContact);
+    fetch(`https://jsonplaceholder.typicode.com/users`, {
+      method: "PUT",
+      body: JSON.stringify(value),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+
+    
+  };
 
   const editContact = (contact) => {
     ref.current.click();
@@ -43,11 +63,13 @@ const ContactList = (props) => {
   };
   const onChangeEdit = (e) => {
     e.preventDefault();
-    // setValue({ ...value, [e.target.name]: e.target.value });
+    setValue({ ...value, [e.target.name]: e.target.value });
+    // console.log("before Update.....",e.target.name);
   };
   const handleEditOnClick = (e) => {
     console.log("Updating value...", value);
     e.preventDefault();
+    updateContactFromTheList(value);
     // setValue(e.target.value);
   };
 
@@ -96,13 +118,13 @@ const ContactList = (props) => {
                   </label>
                   <input
                     type="text"
-                    value={value.name}
-                    // defaultValue={''}
+                    name="name"
+                    defaultValue={value.name}
                     className="form-control"
                     placeholder="Edit Your Name"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
-                    // onChange={onChangeEdit}
+                    onChange={onChangeEdit}
                   />
                 </div>
                 <div className="mb-3">
@@ -111,7 +133,8 @@ const ContactList = (props) => {
                   </label>
                   <input
                     type="text"
-                    value={value.phone}
+                    name="phone"
+                    defaultValue={value.phone}
                     className="form-control"
                     placeholder="Edit Your Number"
                     aria-label="Username"
@@ -125,7 +148,8 @@ const ContactList = (props) => {
                   </label>
                   <input
                     type="email"
-                    value={value.email}
+                    name="email"
+                    defaultValue={value.email}
                     className="form-control"
                     placeholder="Edit Your Email"
                     id="exampleInputEmail1"
@@ -149,6 +173,7 @@ const ContactList = (props) => {
                 onClick={handleEditOnClick}
                 type="button"
                 className="btn btn-primary"
+                data-bs-dismiss="modal"
               >
                 Save changes
               </button>
