@@ -9,7 +9,7 @@ h1 {
   height: 80%;
   margin: auto;
   margin-top: 40px;
-  min-width: 450px;
+  min-width: 400px;
 }
 /* contact box shadow */
 .contactBox {
@@ -141,6 +141,11 @@ h1 {
 @media only screen and (max-width: 660px) {
   .hidden {
     display: none;
+  }
+}
+@media only screen and (max-width: 440px) {
+  h5{
+    font-size: 19px;
   }
 }
 
