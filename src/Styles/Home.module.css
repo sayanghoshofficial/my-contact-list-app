@@ -1,6 +1,8 @@
+/* h1 heading tag for contact list */
 h1 {
   margin-bottom: 40px;
 }
+/* full div for contact list */
 .contactContainer {
   margin: auto;
   width: 70%;
@@ -9,17 +11,21 @@ h1 {
   margin-top: 40px;
   min-width: 450px;
 }
+/* contact box shadow */
 .contactBox {
   box-shadow: 3px 2px 10px 2px;
 }
+/* Resize image  */
 .contactContainer h1 img {
   width: 42px;
 }
+/* styling  ul tag */
 .contactContainer ul {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
 }
+/* contact list heading */
 .contactListHeading {
   display: flex;
   height: 40px;
@@ -30,16 +36,18 @@ h1 {
   background-color: #bb00ff;
   color: #e7e7e7;
 }
+/* contact heading icons */
 .contactIcons {
   width: 22px;
 }
+/* contact heading styling */
 .contacHeadingElement {
   width: 30%;
   display: flex;
   margin-left: 5px;
   align-content: start;
 }
-
+/* contact list styling */
 .contactList {
   display: flex;
   height: 40px;
@@ -47,37 +55,44 @@ h1 {
   align-items: center;
   border-bottom: 2px solid rebeccapurple;
 }
+/* li tag odd line styling */
 .contactList:nth-child(2n + 1) {
   background-color: #8c4196;
 }
+/* contact list hover style */
 .contactList:hover {
-  background-color: rgb(25, 11, 75);
+  background-color: rgb(75, 87, 6);
   color: white;
 }
+/* adjust contact list elements */
 .contactElement {
   width: 30%;
   display: flex;
   margin-left: 5px;
   align-content: start;
 }
+/* button div */
 .BtnDiv {
   width: 70px;
 }
+/* edit and delete btn */
 .editAndDeleteBtn {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-
+/* contact list button */
 .contactListFormbtn {
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
+/* contact icon button */
 .contactIconsbtn {
   width: 50px;
   text-align: center;
 }
+/* contact form styling */
 .contactListForm form {
   width: 70%;
   margin: auto;
@@ -86,6 +101,7 @@ h1 {
   align-items: center;
   justify-content: space-around;
 }
+/* input box styling */
 .contactListForm form input {
   width: 200px;
   height: 40px;
@@ -99,7 +115,11 @@ h1 {
   background-color: transparent;
   cursor: pointer;
 }
+/* add media quary for responsive */
 @media only screen and (max-width: 1390px) {
+  .contactContainer {
+    width: 90%;
+  }
   .contactListForm form {
     flex-direction: column;
     width: 35%;
