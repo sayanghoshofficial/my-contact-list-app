@@ -2,7 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import { useToasts } from "react-toast-notifications";
 import Styles from "../Styles/Home.module.css";
 
+// contact list function
 const ContactList = (props) => {
+  // create use state function
   const [contactList, setContactList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState({
@@ -14,6 +16,7 @@ const ContactList = (props) => {
   const { addToast } = useToasts();
   const ref = useRef(null);
 
+  // use effect  function
   useEffect(() => {
     if (props.data.length !== 0) {
       setContactList([...props.data, ...contactList]);
@@ -22,6 +25,7 @@ const ContactList = (props) => {
     }
   }, [props.data]);
 
+  // fetching contact function fetch contact list from json place holder
   const fetchingContact = async () => {
     setLoading(true);
     const jsonData = await fetch("https://jsonplaceholder.typicode.com/users")
@@ -31,6 +35,8 @@ const ContactList = (props) => {
     setContactList(jsonData);
     setLoading(false);
   };
+
+  // delete function it's a dummy call it not changed original Api data
   const deleteContactFromTheList = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
       method: "DELETE",
@@ -41,6 +47,8 @@ const ContactList = (props) => {
       appearance: "success",
     });
   };
+
+  // update function it's a dummy call it not changed original Api data
   const updateContactFromTheList = (value) => {
     const updateContact = contactList.map((contact) => {
       if (contact.id === value.id) {
@@ -52,7 +60,7 @@ const ContactList = (props) => {
     addToast("Contact updated successfully!", {
       appearance: "success",
     });
-    fetch(`https://jsonplaceholder.typicode.com/users`, {
+    fetch(`https://jsonplaceholder.typicode.com/users/${value.id}`, {
       method: "PUT",
       body: JSON.stringify(value),
       headers: {
@@ -60,25 +68,28 @@ const ContactList = (props) => {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => json);
   };
 
+  // it open the modal to edit contact
   const editContact = (contact) => {
     ref.current.click();
     setValue(contact);
   };
+
+  // it handled the edit contact function
   const onChangeEdit = (e) => {
     e.preventDefault();
     setValue({ ...value, [e.target.name]: e.target.value });
-    // console.log("before Update.....",e.target.name);
-  };
-  const handleEditOnClick = (e) => {
-    console.log("Updating value...", value);
-    e.preventDefault();
-    updateContactFromTheList(value);
-    // setValue(e.target.value);
   };
 
+  // it handled the update contact
+  const handleEditOnClick = (e) => {
+    e.preventDefault();
+    updateContactFromTheList(value);
+  };
+
+  // fetching contact time it shown the loding animation
   if (loading) {
     return <div className="loader"></div>;
   }
@@ -187,7 +198,7 @@ const ContactList = (props) => {
           </div>
         </div>
       </div>
-      {/* modal */}
+      {/* main contact html structure for contact list  */}
       <div className={Styles.contactCointainer}>
         <ul className={Styles.contactBox}>
           <li className={Styles.contactListHeading}>
@@ -197,7 +208,7 @@ const ContactList = (props) => {
                   alt="icon"
                   src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
                   className={Styles.contactIcons}
-                />
+                />{" "}
                 Name
               </h5>
             </div>
@@ -207,7 +218,7 @@ const ContactList = (props) => {
                   alt="icon"
                   src="https://cdn-icons-png.flaticon.com/512/4213/4213179.png"
                   className={Styles.contactIcons}
-                />
+                />{" "}
                 Phone No.
               </h5>
             </div>
@@ -217,7 +228,7 @@ const ContactList = (props) => {
                   alt="icon"
                   src="https://cdn-icons-png.flaticon.com/512/3059/3059989.png"
                   className={Styles.contactIcons}
-                />
+                />{" "}
                 Email
               </h5>
             </div>
@@ -249,8 +260,8 @@ const ContactList = (props) => {
                   onClick={() => deleteContactFromTheList(contact.id)}
                 >
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/3178/3178384.png"
-                    alt="delet-btn"
+                    src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
+                    alt="delete-btn"
                     className={Styles.contactIcons}
                   />
                 </button>
@@ -262,4 +273,6 @@ const ContactList = (props) => {
     </>
   );
 };
+
+// export contact function 
 export default ContactList;

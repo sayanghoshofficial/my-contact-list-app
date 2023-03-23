@@ -1,5 +1,7 @@
+h1 {
+  margin-bottom: 40px;
+}
 .contactContainer {
-  margin-top: 20px;
   margin: auto;
   width: 70%;
   height: 80%;
@@ -7,12 +9,11 @@
   margin-top: 40px;
   min-width: 450px;
 }
-.contactBox{
-  box-shadow: 2px 2px 20px 0px;
+.contactBox {
+  box-shadow: 3px 2px 10px 2px;
 }
 .contactContainer h1 img {
-  width: 25px;
-  height: 25px;
+  width: 42px;
 }
 .contactContainer ul {
   list-style-type: none; /* Remove bullets */
@@ -74,7 +75,7 @@
   cursor: pointer;
 }
 .contactIconsbtn {
-  width: 35px;
+  width: 50px;
   text-align: center;
 }
 .contactListForm form {
@@ -92,7 +93,9 @@
   font-size: 17px;
   outline: none;
   border: none;
-  box-shadow: 2px 2px 15px 3px;
+  color: white;
+  padding-left: 10px;
+  box-shadow: 0px 0px 10px 0px;
   background-color: transparent;
   cursor: pointer;
 }

@@ -2,20 +2,27 @@ import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import Styles from "../Styles/Home.module.css";
 
+
+// contact list from function 
 const ContactListForm = (props) => {
+
+  // use state functions
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
+  // Create toast function 
   const { addToast } = useToasts();
 
+  // get the contact values from the form
   const getContactValues = (e) => {
     e.preventDefault();
     creatingContact(name, number, email);
     setName("");
     setEmail("");
     setNumber("");
-    // console.log('props.data/length',props.data.length)
   };
+
+  // creating contact function its use to create contact items
   const creatingContact = (name, number, email, id = Date.now()) => {
     props.contactTempData({
       name,
@@ -23,11 +30,12 @@ const ContactListForm = (props) => {
       email,
       id,
     });
+    // show toast funtion for for show notification
     addToast("Contact added successfully!", {
       appearance: "success",
     });
-    console.log(id);
-    fetch(`https://jsonplaceholder.typicode.com/users`, {
+    // it handled the dummy post funtion
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
       method: "POST",
       body: JSON.stringify(),
       headers: {
@@ -35,7 +43,7 @@ const ContactListForm = (props) => {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => json);
   };
   return (
     <div className={Styles.contactListForm}>
@@ -79,4 +87,5 @@ const ContactListForm = (props) => {
   );
 };
 
+// export Contact list form function
 export default ContactListForm;

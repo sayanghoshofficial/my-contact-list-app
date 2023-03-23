@@ -4,8 +4,10 @@ import ContactList from "./ContactList";
 import ContactListForm from "./ContactListForm";
 
 const Home = () => {
+  // use state funtion
   const [newData,setNewData] = useState([]);
 
+  // it creating props for update contact 
   const fetchNewData = (data)=>{
     const newArray = [];
     newArray.push(data);
@@ -20,7 +22,7 @@ const Home = () => {
         />
          {' '}My Contact List
       </h1>
-      <ContactListForm contactTempData = {fetchNewData} data={newData}/>
+      <ContactListForm contactTempData = {fetchNewData}/>
       <ContactList data={newData}/>
     </div>
   );
