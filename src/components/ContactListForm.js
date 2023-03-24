@@ -23,7 +23,7 @@ const ContactListForm = (props) => {
   // creating contact function its use to create contact items
   const creatingContact = (name, number, email, id = Date.now()) => {
     // checking that user not give empty inputs
-    if (name.trim() === "" || number.trim() === "") {
+    if (name?.trim() === "" || number?.trim() === "") {
       addToast(
         "You have to enter name and phone number both to create contact",
         {

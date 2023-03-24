@@ -51,7 +51,7 @@ const ContactList = (props) => {
   // update function it's a dummy call it not changed original Api data
   const updateContactFromTheList = (value) => {
     // checking that user not give empty inputs
-    if (value.name.trim() === "" || value.number.trim() === "") {
+    if (value.name?.trim() === "" || value.number?.trim() === "") {
       addToast("You can not keep empty form when updating contact", {
         appearance: "warning",
       });
