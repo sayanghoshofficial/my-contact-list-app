@@ -2,15 +2,13 @@ import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import Styles from "../Styles/Home.module.css";
 
-
-// contact list from function 
+// contact list from function
 const ContactListForm = (props) => {
-
   // use state functions
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
-  // Create toast function 
+  // Create toast function
   const { addToast } = useToasts();
 
   // get the contact values from the form
@@ -24,10 +22,20 @@ const ContactListForm = (props) => {
 
   // creating contact function its use to create contact items
   const creatingContact = (name, number, email, id = Date.now()) => {
+    // checking that user not give empty inputs
+    if (name.trim() === "" || number.trim() === "") {
+      addToast(
+        "You have to enter name and phone number both to create contact",
+        {
+          appearance: "warning",
+        }
+      );
+      return;
+    }
     props.contactTempData({
-      name,
-      phone: number,
-      email,
+      name: name.trim(),
+      phone: number.trim(),
+      email: email.trim(),
       id,
     });
     // show toast funtion for for show notification

@@ -50,6 +50,13 @@ const ContactList = (props) => {
 
   // update function it's a dummy call it not changed original Api data
   const updateContactFromTheList = (value) => {
+    // checking that user not give empty inputs
+    if (value.name.trim() === "" || value.number.trim() === "") {
+      addToast("You can not keep empty when updating contact", {
+        appearance: "warning",
+      });
+      return;
+    }
     const updateContact = contactList.map((contact) => {
       if (contact.id === value.id) {
         contact = value;
@@ -274,5 +281,5 @@ const ContactList = (props) => {
   );
 };
 
-// export contact function 
+// export contact function
 export default ContactList;
