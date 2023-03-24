@@ -52,7 +52,7 @@ const ContactList = (props) => {
   const updateContactFromTheList = (value) => {
     // checking that user not give empty inputs
     if (value.name.trim() === "" || value.number.trim() === "") {
-      addToast("You can not keep empty when updating contact", {
+      addToast("You can not keep empty form when updating contact", {
         appearance: "warning",
       });
       return;
